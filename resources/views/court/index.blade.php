@@ -34,6 +34,26 @@
 				</div>
 				
 				</div>
+
+				<div class="row mt-5">
+					<div class="col-md-3 ">
+					<label>Lat</label>
+					</div>
+					<div class="col-md-5">
+						<input type="text" name="lat" class="form-control">
+					</div>
+				
+				</div>
+
+				<div class="row mt-5">
+					<div class="col-md-3 ">
+					<label>Long</label>
+				</div>
+				<div class="col-md-5">
+					<input type="text" name="long" class="form-control">
+				</div>
+				
+				</div>
 				
 				
 				<div class="col-md-3">
@@ -76,6 +96,26 @@
 				</div>
 				
 				</div>
+
+				<div class="row mt-5">
+					<div class="col-md-3 ">
+					<label>Lat</label>
+				</div>
+				<div class="col-md-5">
+					<input type="number" name="edit_lat" class="form-control" id="edit_lat">
+				</div>
+				
+				</div>
+
+				<div class="row mt-5">
+					<div class="col-md-3 ">
+					<label>Long</label>
+				</div>
+				<div class="col-md-5">
+					<input type="number" name="edit_long" class="form-control" id="edit_long">
+				</div>
+				
+				</div>
 				
 				
 				<div class="col-md-3">
@@ -94,6 +134,8 @@
 				<th>Court Name</th>
 				<th>Phone</th>
 				<th>Address</th>
+				<th>lat</th>
+				<th>long</th>
 				<th colspan="2">Action</th>
 			</tr>
 			@php $i = 1; @endphp
@@ -103,8 +145,10 @@
 				<td>{{$court->name}}</td>
 				<td>{{$court->phone}}</td>
 				<td>{{$court->address}}</td>
+				<td>{{$court->lat}}</td>
+				<td>{{$court->lng}}</td>
 				<td>
-					<a href="#" class="btn btn-secondary  edit_item " data-id="{{$court->id}}" data-name = "{{$court->name}}" data-address="{{$court->address}}" data-phone="{{$court->phone}}"  >Edit</a>
+					<a href="#" class="btn btn-secondary  edit_item " data-id="{{$court->id}}" data-name = "{{$court->name}}" data-address="{{$court->address}}" data-phone="{{$court->phone}}"  data-lat= "{{$court->lat}}" data-lng="{{$court->lng}}" >Edit</a>
 				</td>
 				<td>	
                     <form action="{{route('court.destroy',$court->id)}}" method="post">
@@ -138,11 +182,15 @@
 				var name = $(this).data('name');
 				var phone = $(this).data('phone');
 				var address = $(this).data('address');
+				var lat = $(this).data('lat');
+				var lng = $(this).data('lng');
 				console.log(id,name,address,phone);
 				$('#edit_id').val(id);
 				$('#edit_name').val(name);
 				$('#edit_address').val(address);
 				$('#edit_phone').val(phone);
+				$('#edit_lat').val(lat);
+				$('#edit_long').val(lng);
 			})
 		})
 	</script>

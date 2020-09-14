@@ -38,16 +38,20 @@ class CourtController extends Controller
         // $base_url = "http://mobile.khaingthinkyi.me/";
 
         $request->validate([
-            'name' => 'required',
-            'address'=> 'required',
-            'phone'  => 'required' 
+            'name'      => 'required',
+            'address'   => 'required',
+            'phone'     => 'required',
+            'lat'       => 'required',
+            'long'      => 'required'
         ]);
     
         
         $court = new Court;
-        $court->name = request('name');
+        $court->name    = request('name');
         $court->address = request('address');
-        $court->phone = request('phone');
+        $court->phone   = request('phone');
+        $court->lat     = request('lat');
+        $court->lng    = request('long');  
         $court->save();
 
         return redirect()->route('court.index');
@@ -91,7 +95,9 @@ class CourtController extends Controller
             'edit_name' => 'required',
             // 'image'=> 'required',
             'edit_address'  => 'required',
-            'edit_phone'    => 'required' 
+            'edit_phone'    => 'required',
+            'edit_lat'      => 'required',
+            'edit_long'     => 'required' 
         ]);
          
         
@@ -99,6 +105,8 @@ class CourtController extends Controller
         $court->name = request('edit_name');
         $court->phone = request('edit_phone');
         $court->address = request('edit_address');
+        $court->lat     = request('edit_lat');
+        $court->lng    = request('edit_long');
         $court->save();
 
         return redirect()->route('court.index');
