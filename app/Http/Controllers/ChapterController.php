@@ -51,6 +51,7 @@ class ChapterController extends Controller
         $chapter->chapter_no = request('chapter_no');
         $chapter->law_id     = request('law_id');
         $chapter->section    = request('section');
+        $chapter->name        = request('name');   
         $chapter->save();
 
         return redirect()->route('chapter.index');
@@ -96,12 +97,12 @@ class ChapterController extends Controller
             'edit_law_id'       => 'required',
             'edit_section'      => 'required' 
         ]);
-         
         
         $chapter = Chapter::find(request('edit_id'));
         $chapter->chapter_no = request('edit_chapter_no');
         $chapter->law_id     = request('edit_law_id');
         $chapter->section    = request('edit_section');
+        $chapter->name       = request('edit_name');   
         $chapter->save();
 
         return redirect()->route('chapter.index');

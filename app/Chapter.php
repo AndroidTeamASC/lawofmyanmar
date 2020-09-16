@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Chapter extends Model
 {
-    protected $fillable = ['chapter_no','law_id','section'];
+    protected $fillable = ['chapter_no','law_id','section','name'];
     public function law($value='')
     {
     	return $this->belongsTo('App\Law');

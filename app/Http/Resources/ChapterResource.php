@@ -17,6 +17,7 @@ class ChapterResource extends JsonResource
         return [
             'chapter_id' => $this->id,
             'section'    => $this->section, 
+            'name'      =>  $this->name,
             'law' => new LawResource(Law::find($this->law_id))
         ];
     }

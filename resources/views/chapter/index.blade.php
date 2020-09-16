@@ -6,7 +6,6 @@
 			<h1>Chapter </h1>
 			<form action="{{route('chapter.store')}}" method="post" enctype="multipart/form-data">
 				@csrf
-
 				<div class="row mt-5">
 					<div class="col-md-3 ">
 					<label>Chapter No</label>
@@ -16,6 +15,7 @@
 				</div>
 
 				</div>
+			
 
 				<div class="row mt-5">
 					<div class="col-md-3 ">
@@ -23,6 +23,16 @@
 				</div>
 				<div class="col-md-5">
 					<input type="text" name="section" class="form-control">
+				</div>
+
+				</div>
+
+				<div class="row mt-5">
+					<div class="col-md-3 ">
+					<label>Name</label>
+				</div>
+				<div class="col-md-5">
+					<input type="text" name="name" class="form-control">
 				</div>
 
 				</div>
@@ -61,6 +71,16 @@
 				</div>
 				<div class="col-md-5">
 					<input type="text" name="edit_chapter_no" class="form-control" id="edit_chapter_no">
+				</div>
+
+				</div>
+
+				<div class="row mt-5">
+					<div class="col-md-3 ">
+					<label>name</label>
+				</div>
+				<div class="col-md-5">
+					<input type="text" name="edit_name" id="edit_name" class="form-control">
 				</div>
 
 				</div>
@@ -108,6 +128,7 @@
 			<tr>
 				<th>NO.</th>
 				<th>chapter No</th>
+				<th>Name</th>
 				<th>law</th>
 				<th>Section</th>
 				<th colspan="2">Action</th>
@@ -117,10 +138,11 @@
 			<tr>
 				<td>{{$i++}}</td>
 				<td>{{$chapter->chapter_no}}</td>
+				<td>{{$chapter->name}}</td>
 				<td>{{$chapter->law->name}}</td>
 				<td>{{$chapter->section}}</td>
 				<td>
-					<a href="#" class="btn btn-secondary  edit_item " data-id="{{$chapter->id}}" data-chapter_no = "{{$chapter->chapter_no}}" data-law_id="{{$chapter->law_id}}" data-section="section">Edit</a>
+					<a href="#" class="btn btn-secondary  edit_item " data-id="{{$chapter->id}}" data-chapter_no = "{{$chapter->chapter_no}}" data-law_id="{{$chapter->law_id}}" data-section="{{$chapter->section}}" data-name="{{$chapter->name}}">Edit</a>
 				</td>
 				<td>	
                     <form action="{{route('chapter.destroy',$chapter->id)}}" method="post">
@@ -154,6 +176,7 @@
 				var chapter_no = $(this).data('chapter_no');
 				var law_id     = $(this).data('law_id');
 				var section    = $(this).data('section');
+				var name 	   = $(this).data('name')	
 
 				
 				console.log(id,chapter_no,law_id);
@@ -161,6 +184,7 @@
 				$('#edit_chapter_no').val(chapter_no);
 				$('#edit_section').val(section);
 				$('#edit_law_id').val(law_id);
+				$('#edit_name').val(name);
 				
 			})
 		})
