@@ -40,7 +40,7 @@
 					<label>Lat</label>
 					</div>
 					<div class="col-md-5">
-						<input type="text" name="lat" class="form-control">
+						<input type="number" name="lat" class="form-control" step="0.000001">
 					</div>
 				
 				</div>
@@ -50,7 +50,7 @@
 					<label>Long</label>
 				</div>
 				<div class="col-md-5">
-					<input type="text" name="long" class="form-control">
+					<input type="text" name="long" class="form-control" step="0.000001">
 				</div>
 				
 				</div>
@@ -102,7 +102,7 @@
 					<label>Lat</label>
 				</div>
 				<div class="col-md-5">
-					<input type="number" name="edit_lat" class="form-control" id="edit_lat">
+					<input type="number" name="edit_lat" class="form-control" id="edit_lat" step="0.000001">
 				</div>
 				
 				</div>
@@ -112,7 +112,7 @@
 					<label>Long</label>
 				</div>
 				<div class="col-md-5">
-					<input type="number" name="edit_long" class="form-control" id="edit_long">
+					<input type="number" name="edit_long" class="form-control" id="edit_long" step="0.000001">
 				</div>
 				
 				</div>

@@ -103,7 +103,6 @@ class LawController extends Controller
     public function update(Request $request, $id)
     {
 
-        dd($request);
          $request->validate([
             'edit_name'              => 'required',
             'edit_type'              => 'required',

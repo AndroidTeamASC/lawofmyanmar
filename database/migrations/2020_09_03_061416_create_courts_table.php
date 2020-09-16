@@ -18,8 +18,8 @@ class CreateCourtsTable extends Migration
             $table->string('name');
             $table->string('address');
             $table->string('phone');
-            $table->bigInteger('lat');
-            $table->bigInteger('lng');
+            $table->double('lat');
+            $table->double('lng');
             $table->timestamps();
         });
     }
